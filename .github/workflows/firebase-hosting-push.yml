@@ -28,19 +28,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          browser: chrome 
-          start: npm start
-          wait-on: 'http://localhost:4200'
-          record: true
-          parallel: true
-          group: '${{ github.workflow }}'
-        env:
-          CYPRESS_BASE_URL: http://localhost:4200
-      - name: Upload Cypress resutls
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-results
-          path: cypress/results
+          command: npm run test
   cypress-run-component:
     runs-on: ubuntu-latest
     steps:
