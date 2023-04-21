@@ -7,27 +7,7 @@ on:
     branches:
       - br/my-stable-branch
 jobs:
-  cypress-run: 
-    runs on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Cypress run
-        uses: cypress.io/github-action@v5
-        with:
-          builds: npm run build
-          start: npm start
-          jobs: 
-  cypress-run-component:
-    run-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Cypress run
-        uses: cypress.io/github-action@v5
-        with:
-          component: true
-  build_and_deploy:
+  build_and_priview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
