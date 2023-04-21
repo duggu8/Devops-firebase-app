@@ -28,9 +28,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          builds: npm run build
+          browser: chrome 
           start: npm start
-          jobs: 
+          wait-on: 'http://localhost:3000'
   cypress-run-component:
     runs-on: ubuntu-latest
     steps:
