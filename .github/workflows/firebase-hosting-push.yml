@@ -24,7 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install dependencies
-        run: npm cache clean && npm install
+        run: npm cache clean --force && npm install
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
