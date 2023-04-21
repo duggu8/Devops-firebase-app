@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 15
+          node-version: 16.13.0
       - name: Cypress run
         uses: cypress.io/github-action@v5
         with:
