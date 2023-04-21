@@ -31,6 +31,15 @@ jobs:
           browser: chrome 
           start: npm start
           wait-on: 'http://localhost:4200'
+          record: true
+          parallel: true
+          group: '${{ github.workflow }}'
+          
+      - name: Upload Cypress resutls
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-results
+          path: cypress/results
   cypress-run-component:
     runs-on: ubuntu-latest
     steps:
