@@ -27,8 +27,9 @@ jobs:
         run: npm cache clean --force && npm install
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        timeout-minutes: 2
         with:
-          command: npm run test
+          browser: chrome
   cypress-run-component:
     runs-on: ubuntu-latest
     steps:
