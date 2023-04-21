@@ -20,3 +20,7 @@ jobs:
           projectId: git-actions-firebase-app
           build_configuration: production
           angular_dist_build_folder: dist/Devops-firebase-app
+
+permissions:
+  contents: write
+
