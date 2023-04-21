@@ -12,12 +12,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - name: Install Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 16.13.0
+          node-version: '14.x'
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key:  ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install denpendencies
+        run: npm ci
       - name: Cypress run
-        uses: cypress.io/github-action@v5
+        uses: cypress.io/github-action@v2
         with:
           builds: npm run build
           start: npm start
