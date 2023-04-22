@@ -7,32 +7,14 @@ on:
     branches:
       - br/my-stable-branch
 jobs:
-  cypress:
-    runs-on: ubuntu-latest
-
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
         with:
-          node-version: '14.x'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build the app
-        run: npm run build
-
-      - name: Run Cypress E2E tests
-        uses: cypress-io/github-action@v2
-        with:
-          browser: chrome
-          start: npm run start
-          wait-on: 'http://localhost:4200/**'
-          record: true
-          record-key: ${{ secrets.CYPRESS_RECORD_KEY }}
-      - uses: actions/upload-artifact@v2
-        with:
-            name: Test Results
-            path: cypress/results
+          build: npm run build
+          start: npm start
+          jobs:
