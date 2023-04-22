@@ -20,10 +20,6 @@ describe('dashboard', () => {
     cy.get('app-hero-search').should('contain', 'Hero Search');
   });
 
-  it(`says hello from Matt`, () => {
-    cy.contains('Hello from Matt');
-  });
-
   it('can search', () => {
     cy.get('#search-box').type('Bombasto');
     cy.get('.search-result li').contains('Bombasto').click();
