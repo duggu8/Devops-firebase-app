@@ -36,5 +36,3 @@ jobs:
           with:
             name: Test Results
             path: cypress/results
-
-          
